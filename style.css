@@ -1,0 +1,954 @@
+/* =========================================================
+   SHARY MARREL PACLAR — MY FIRST WEBSITE
+   Shared stylesheet for index.html and story.html
+   Theme: soft pinks · clean layout · Fraunces + DM Sans
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap");
+
+/* ---------- Base ---------- */
+
+:root {
+    --blush: #fdf3f5;
+    --blush-light: #fffafb;
+    --pink-soft: #f9dfe6;
+    --pink: #eeb4c4;
+    --rose: #c9607f;
+    --rose-dark: #8f3653;
+    --berry: #4a2333;
+    --white: #ffffff;
+    --ink: #3a2a30;
+    --muted: #7d6870;
+    --line: rgba(143, 54, 83, 0.14);
+    --shadow: 0 20px 50px rgba(143, 54, 83, 0.10);
+    --shadow-soft: 0 8px 24px rgba(143, 54, 83, 0.07);
+    --radius: 20px;
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "DM Sans", Arial, Helvetica, sans-serif;
+
+    /* kept so older references still work */
+    --cream: var(--blush);
+    --cream-light: var(--blush-light);
+    --sage: var(--pink);
+    --sage-light: var(--pink-soft);
+    --green: var(--rose-dark);
+    --green-dark: var(--berry);
+    --brown: var(--rose);
+    --brown-light: var(--pink);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--blush-light);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1.02rem;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+p {
+    margin-bottom: 1rem;
+    max-width: 68ch;
+}
+
+strong {
+    color: var(--berry);
+    font-weight: 700;
+}
+
+::selection {
+    background: var(--pink);
+    color: var(--berry);
+}
+
+:focus-visible {
+    outline: 2px solid var(--rose);
+    outline-offset: 3px;
+}
+
+/* ---------- Header / Navigation ---------- */
+
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 28px 5%;
+}
+
+.story-header {
+    position: sticky;
+    background: rgba(255, 250, 251, 0.9);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(12px);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.brand {
+    color: var(--berry);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+}
+
+.nav-link,
+.home-link,
+.nav-links a {
+    color: var(--rose-dark);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: color 0.25s ease;
+}
+
+.nav-link span,
+.button span {
+    display: inline-block;
+    margin-left: 8px;
+    transition: transform 0.25s ease;
+}
+
+.nav-link:hover,
+.home-link:hover,
+.nav-links a:hover {
+    color: var(--rose);
+}
+
+.nav-link:hover span,
+.button:hover span {
+    transform: translateX(4px);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* ---------- Shared Typography ---------- */
+
+.eyebrow,
+.small-label {
+    margin-bottom: 10px;
+    color: var(--rose);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--berry);
+    font-family: var(--serif);
+    font-weight: 300;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+}
+
+h1 em,
+h2 em {
+    color: var(--rose);
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* ---------- Buttons ---------- */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border: 1px solid var(--rose);
+    border-radius: 999px;
+    background: var(--rose);
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.button:hover {
+    background: var(--rose-dark);
+    border-color: var(--rose-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(143, 54, 83, 0.22);
+}
+
+/* ---------- Home Page ---------- */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 130px 7% 80px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 10% 15%, rgba(238, 180, 196, 0.45), transparent 32%),
+        radial-gradient(circle at 90% 85%, rgba(249, 223, 230, 0.9), transparent 35%),
+        var(--blush);
+}
+
+.hero-content {
+    width: min(820px, 100%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero h1 {
+    margin-bottom: 30px;
+    font-size: clamp(3.6rem, 9vw, 7rem);
+    letter-spacing: -0.045em;
+}
+
+.hero-image-wrap {
+    width: min(320px, 70vw);
+    aspect-ratio: 4 / 5;
+    padding: 10px;
+    margin-bottom: 30px;
+    background: var(--white);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    transform: rotate(-2deg);
+}
+
+.hero-image {
+    height: 100%;
+    border-radius: 2px;
+}
+
+.intro-card {
+    max-width: 640px;
+    margin-bottom: 28px;
+    padding: 10px 20px;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.intro-card p {
+    margin: 0 auto;
+}
+
+.hero-side-note {
+    position: absolute;
+    right: 4%;
+    bottom: 10%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--rose);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    writing-mode: vertical-rl;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 55px;
+    background: var(--pink);
+}
+
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 26px 7%;
+    background: var(--berry);
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+}
+
+.site-footer p {
+    margin: 0;
+    max-width: none;
+}
+
+/* ---------- Story Intro ---------- */
+
+.story-intro {
+    min-height: 65vh;
+    padding: 150px 7% 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        linear-gradient(135deg, rgba(249, 223, 230, 0.9), rgba(253, 243, 245, 0.95)),
+        var(--blush);
+}
+
+.story-intro h1 {
+    max-width: 900px;
+    font-size: clamp(3.6rem, 9vw, 7.5rem);
+    letter-spacing: -0.045em;
+}
+
+.story-lead {
+    max-width: 560px;
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: 1.12rem;
+}
+
+/* ---------- Story Sections ---------- */
+
+.story-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 110px 7%;
+}
+
+.alternate-section {
+    max-width: none;
+    background: var(--blush);
+}
+
+.section-heading {
+    max-width: 1050px;
+    margin: 0 auto 65px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+.section-number {
+    color: var(--pink);
+    font-family: var(--serif);
+    font-size: 2.6rem;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.section-heading h2 {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+}
+
+.section-subtitle {
+    max-width: 560px;
+    margin-top: 20px;
+    color: var(--muted);
+}
+
+/* ---------- Story Cards ---------- */
+
+.story-card {
+    max-width: 1050px;
+    margin: 0 auto 55px;
+    padding: 45px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.split-card {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.split-card.reverse {
+    grid-template-columns: 0.9fr 1fr;
+}
+
+.story-text h3 {
+    margin-bottom: 20px;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+}
+
+.story-text p {
+    color: var(--muted);
+}
+
+.image-frame {
+    min-height: 380px;
+    overflow: hidden;
+    border-radius: 14px;
+    background: var(--pink-soft);
+}
+
+.image-frame img {
+    height: 100%;
+    min-height: 380px;
+    transition: transform 0.5s ease;
+}
+
+.image-frame:hover img {
+    transform: scale(1.04);
+}
+
+/* ---------- Birthday / Photo Galleries ---------- */
+
+.birthday-card {
+    text-align: center;
+}
+
+.centered-text {
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.centered-text p {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.photo-grid {
+    display: grid;
+    gap: 14px;
+}
+
+.three-photos {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.photo-grid img {
+    height: 300px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.photo-grid img:hover {
+    transform: translateY(-4px);
+}
+
+.growing-up-grid {
+    grid-template-columns: 1.2fr 0.8fr 0.8fr;
+    margin-top: 35px;
+}
+
+.growing-up-grid img {
+    height: 260px;
+}
+
+.reflection-card {
+    max-width: 1050px;
+    margin: 70px auto 0;
+    padding: 55px;
+    border-left: 3px solid var(--rose);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background: var(--pink-soft);
+}
+
+.reflection-card blockquote {
+    max-width: 780px;
+    margin: 10px 0 20px;
+    color: var(--berry);
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.28;
+}
+
+/* ---------- School Timeline ---------- */
+
+.timeline {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 25px;
+    width: 1px;
+    background: var(--pink);
+}
+
+.timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 35px;
+    margin-bottom: 50px;
+}
+
+.timeline-marker {
+    position: relative;
+    z-index: 2;
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--pink);
+    border-radius: 50%;
+    background: var(--blush);
+    color: var(--rose);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.timeline-content {
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+}
+
+.timeline-content h3 {
+    margin-bottom: 15px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.timeline-content p:last-child {
+    margin-bottom: 0;
+    color: var(--muted);
+}
+
+.featured-timeline .timeline-marker {
+    background: var(--rose);
+    border-color: var(--rose);
+    color: var(--white);
+}
+
+.featured-timeline .timeline-content {
+    border-top: 3px solid var(--rose);
+}
+
+.closing-note {
+    max-width: 760px;
+    margin: 80px auto 0;
+    text-align: center;
+    color: var(--muted);
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* ---------- Hobbies ---------- */
+
+.hobby-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.hobby-card {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 540px;
+    width: 100%;
+    justify-self: center;
+}
+
+.hobby-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.hobby-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
+.hobby-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+}
+
+.hobby-card:hover .hobby-image img {
+    transform: scale(1.04);
+}
+
+.hobby-content {
+    padding: 30px;
+}
+
+.hobby-content > span {
+    color: var(--rose);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.hobby-content h3 {
+    margin: 8px 0 12px;
+    font-size: 2rem;
+}
+
+.hobby-content p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.beyond-statement {
+    max-width: 850px;
+    margin: 80px auto 0;
+    padding: 40px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+    color: var(--rose-dark);
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* ---------- Future ---------- */
+
+.future-section {
+    max-width: none;
+    background:
+        radial-gradient(circle at 85% 25%, rgba(238, 180, 196, 0.4), transparent 30%),
+        var(--blush);
+}
+
+.future-layout {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.future-image {
+    min-height: 560px;
+    padding: 10px;
+    background: var(--white);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    transform: rotate(2deg);
+}
+
+.future-image img {
+    height: 100%;
+    min-height: 540px;
+}
+
+.future-text {
+    color: var(--muted);
+}
+
+.final-quote {
+    margin-top: 40px;
+    padding: 30px;
+    border-left: 3px solid var(--rose);
+    border-radius: 0 14px 14px 0;
+    background: rgba(255, 255, 255, 0.75);
+}
+
+.final-quote > span {
+    color: var(--pink);
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    line-height: 0;
+}
+
+.final-quote p {
+    margin: 10px 0 0;
+    color: var(--berry);
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.back-home {
+    max-width: 1050px;
+    margin: 70px auto 0;
+    text-align: center;
+}
+
+/* ---------- Motion preferences ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+}
+
+/* ---------- Responsive Design ---------- */
+
+@media (max-width: 850px) {
+
+    .site-header {
+        padding: 22px 5%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 110px;
+    }
+
+    .hero-side-note {
+        display: none;
+    }
+
+    .split-card,
+    .split-card.reverse,
+    .future-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .story-card {
+        padding: 30px;
+    }
+
+    .image-frame,
+    .image-frame img {
+        min-height: 330px;
+    }
+
+    .future-image,
+    .future-image img {
+        min-height: 400px;
+    }
+
+    .future-image {
+        transform: none;
+    }
+
+    .three-photos,
+    .growing-up-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-grid img,
+    .growing-up-grid img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 0.96rem;
+    }
+
+    .hero {
+        padding: 110px 6% 55px;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.2rem, 17vw, 5rem);
+    }
+
+    .hero-image-wrap {
+        width: min(270px, 75vw);
+    }
+
+    .intro-card {
+        padding: 10px;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .story-intro {
+        min-height: 70vh;
+        padding: 130px 7% 80px;
+    }
+
+    .story-intro h1 {
+        font-size: clamp(3.3rem, 16vw, 5.5rem);
+    }
+
+    .story-section {
+        padding: 80px 6%;
+    }
+
+    .section-heading {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(2.6rem, 13vw, 3.8rem);
+    }
+
+    .story-card {
+        padding: 22px;
+        margin-bottom: 30px;
+        border-radius: 16px;
+    }
+
+    .story-text h3 {
+        font-size: 1.9rem;
+    }
+
+    .reflection-card {
+        padding: 30px;
+        margin-top: 50px;
+    }
+
+    .reflection-card blockquote {
+        font-size: 1.9rem;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 42px 1fr;
+        gap: 18px;
+    }
+
+    .timeline-marker {
+        width: 42px;
+        height: 42px;
+        font-size: 0.7rem;
+    }
+
+    .timeline-content {
+        padding: 23px;
+    }
+
+    .hobby-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hobby-card:last-child {
+        grid-column: auto;
+        max-width: none;
+    }
+
+    .hobby-image {
+        height: 250px;
+    }
+
+    .beyond-statement {
+        padding: 30px 10px;
+        margin-top: 55px;
+    }
+
+    .future-image,
+    .future-image img {
+        min-height: 330px;
+    }
+
+    .nav-link,
+    .home-link {
+        font-size: 0.78rem;
+    }
+}
+
+/* ---------- Additions: accessibility & mobile nav ---------- */
+
+.skip-link {
+    position: absolute;
+    left: 12px;
+    top: -60px;
+    z-index: 20;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: var(--berry);
+    color: var(--white);
+    font-size: 0.85rem;
+}
+
+.skip-link:focus {
+    top: 12px;
+}
+
+.site-footer a:hover {
+    color: var(--pink);
+}
+
+.story-section {
+    scroll-margin-top: 80px;
+}
+
+@media (max-width: 850px) {
+
+    .story-header .navbar {
+        flex-wrap: wrap;
+        gap: 8px 20px;
+    }
+
+    .story-header .nav-links {
+        display: flex;
+        order: 3;
+        width: 100%;
+        gap: 22px;
+        padding-bottom: 4px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+    }
+
+    .story-section {
+        scroll-margin-top: 110px;
+    }
+}
+
+.birthday-card .centered-text .small-label {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 12px;
+    text-align: center !important;
+}
